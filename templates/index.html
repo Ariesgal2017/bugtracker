@@ -1,0 +1,33 @@
+<body>
+<h1>Bugtracker</h1>
+{% if request.user.is_authenticated %}
+<h1>Welcome, <a href='/user/{{user.id}}/'>{{ request.user.username }}</a></h1> 
+{% endif %}
+<br>
+<a href='/tickets/add/'><button>Add Ticket</button></a>
+<ol>
+<h2>New Tickets</h2>
+{% for n in new %}
+<h4><a href='/tickets/{{n.id}}'>{{n.title}}</a></h4>               {% endfor %}
+</ol>
+ <br/>
+ <ol>
+<h2>In Progress</h2>
+{% for i in in_process %}
+<h5><a href='/tickets/{{i.id}}'>{{i.title}}</a></h5>
+{% endfor %}
+</ol>
+<br><ol>
+<h2>Done</h2>
+{% for f in finished %}
+<h4><a href='/tickets/{{f.id}}'>{{f.title}}</a></h4>
+{% endfor %}
+</ol>
+<br>
+<ol>
+<h2>Invalid Tickets</h2>
+{% for x in invalid %}
+<h5><a href='/tickets/{{x.id}}'>{{x.title}}</a></h5>
+{% endfor %}
+</ol>
+</body>
