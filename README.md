@@ -17,7 +17,7 @@ Write a bug tracker application that:
     *   the current tickets assigned to a user
     *   which tickets that user has filed
     *   which tickets that user completed
-
+    *   clean up code!!!!!!!!!
 Your `Ticket` model should have the following fields:
 
 *   Title: str
@@ -42,7 +42,7 @@ When a ticket is filed/created, it should have the following settings:
 *   User who filed: Person who's logged in
 
 When a ticket is assigned, these change as follows:
-
+doesnt say...can we sai the asssingment with the requirments ?ya
 *   Status: In Progress
 *   User Assigned: person the ticket now belongs to
 *   User who Completed: None
@@ -66,7 +66,7 @@ article = NewsItem.objects.get(id=1)
 article.title = "What's up, Doc?"  
 article.save()
 ```
-
+#lets finishi
 There are no points for pretty, so you're just looking for enough of a front end to make it function. Good luck, and may the Bugs be with you!
 
 #### **Submission**
