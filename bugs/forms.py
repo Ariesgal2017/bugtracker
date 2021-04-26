@@ -19,3 +19,7 @@ class GenForm(forms.Form):
 
 class TicketStatusForm(forms.Form): 
     status = forms.ChoiceField(choices=[('new','new'),('in_process','in_process'),('finished','finished'),('invalid','invalid')])#savsasve and run!
+
+class RegisterForm(forms.Form):
+    username = forms.CharField(max_length=50)
+    password = forms.CharField(widget=forms.PasswordInput)

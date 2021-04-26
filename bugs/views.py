@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render, reverse
 
-from bugs.forms import LoginForm, AddTicketForm, EditTicketForm, GenForm, TicketStatusForm
+from bugs.forms import LoginForm, AddTicketForm, RegisterForm, EditTicketForm, GenForm, TicketStatusForm
 from bugs.models import CustomUser, Ticket
 
 # Create your views here.
@@ -149,3 +149,17 @@ def ticketassignstatus_view(request, ticket_id):
                 ticket.ticketstatus = ticketstatus
             ticket.save()
     return HttpResponseRedirect(reverse('home'))
+
+def new_user_view(request):
+    html = 'generic_form.html'
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            newUser = CustomUser.objects.create(
+                username=data['username'],
+                password=data['password'],
+            )
+            return HttpResponseRedirect(reverse('home'))
+    form = RegisterForm()
+    return render(request, html, {'form': form})

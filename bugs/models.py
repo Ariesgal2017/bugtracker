@@ -26,5 +26,3 @@ class Ticket(models.Model):
 
     def __str__(self):
         return self.title or '' 
-
-    #3 wat now i dont know what that other one is??? lol which one>>.thiS? ?O?N/e/

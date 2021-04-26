@@ -17,12 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from bugs import views
 
-# you need to define its path here! its not defined!
-# the issue here its not even tying to run the index_view
-# i might have found something
 urlpatterns = [
     path('', views.index_view, name='home'),
-    path('accounts/' , views.login_view, name='loginpage'),#save and try
+    path('register', views.new_user_view, name='register'),
+    path('accounts/' , views.login_view, name='loginpage'),
     path('login/', views.login_view, name='loginpage'),
     path('logout/', views.logout_view, name='logoutpage'),
     path('tickets/add/', views.addticket_view),
@@ -31,10 +29,7 @@ urlpatterns = [
     path('tickets/<int:user_filed_id>/', views.ticketdetail_view,name='ticket_detail'),
     path('assignperson/<int:ticket_id>/', views.ticketassignuser_view, name='assign_ticket'), # wrong view!oops
     path('assignstatus/<int:ticket_id>/', views.ticketassignstatus_view, name='assign_status'), # wrong view!oops
-   # path('complete/<int:ticket_id/', views.completedticket_view),
-    # path('assignperson/<int:ticket_id>/', views.ticketstatus_view,name='statusview'),
+  
     path('admin/', admin.site.urls),
 ]
 
-#3now we need a new path to assignstatus just like we didi with assign person
-#3inside w will have a if to eacho of the states, this way you wont need a lot of viewsok
